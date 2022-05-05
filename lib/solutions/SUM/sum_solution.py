@@ -1,4 +1,7 @@
 # noinspection PyShadowingBuiltins,PyUnusedLocal
 def compute(x, y):
-    return x + y
+    if x > 0 and y > 0:
+        return x + y
+    else:
+        raise Exception('Variable should be greater than 0')    
     
