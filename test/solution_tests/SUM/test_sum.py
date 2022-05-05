@@ -16,9 +16,6 @@ class TestSum(unittest.TestCase):
         result = sum_solution.compute(1, 2) 
         self.assertEqual(result, 4) 
 
-    def test_sum_equal(self):
-        result = sum_solution.compute(2, 2) 
-        self.assertEqual(result, 4)
-
 # if __name__ == '__main__':
 #     unittest.main()           
+

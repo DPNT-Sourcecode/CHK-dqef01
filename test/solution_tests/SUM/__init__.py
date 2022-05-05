@@ -9,5 +9,8 @@ Test = st.TestSum()
 
 result_equal = Test.test_sum_equal()
 
+result_diff = Test.test_sum_diff()
+
+
 
 
