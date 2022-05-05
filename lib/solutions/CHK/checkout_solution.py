@@ -52,8 +52,16 @@ o_2 = Offer(**offer_2)
 # print(o_2.qtt)
 
 def calc_offer(sku, qtt_product):
-    list_offers = list(filter(lambda x: x['description'] == sku, offers))[-1]
-    
+    list_offers = list(filter(lambda x: x['description'] == sku, offers))
+
+    if list_offers:
+        offer = Offer(**list_offers[-1])
+        product = Product(**list(filter(lambda x: x['description'] == sku, products)))
+        qtt_offer = int(qtt_product / offer["qtt"])
+        amount = qtt_offer * offer.price
+        rest = (qtt_product - qtt_offer)
+        amount = amount + (rest * product.price)
+        print(amount)
     # offer = Offer(**list(filter(lambda x: x['description'] == sku, offers))[-1])
     # if sku == offer.description:
     #     print('OK')
@@ -66,7 +74,7 @@ def calc_offer(sku, qtt_product):
     #         rest = (qtt_product - qtt_offer)
 
 # print(list(filter(lambda x: x['description'] == "A", products)))
-print(calc_offer('C', 7))
+print(calc_offer('A', 7))
 
 def checkout(skus):
     for item in skus:
@@ -74,6 +82,7 @@ def checkout(skus):
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
+
 
 
 
