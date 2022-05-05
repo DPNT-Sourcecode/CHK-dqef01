@@ -67,15 +67,15 @@ def calc_product(sku, qtt_product):
     return amount   
 
 def checkout(skus):
+    amount = 0
     for product in products:
         p = Product(**product)
         qtt = skus.count(p.description)
-        amount = amount + calc_product(p.description,qtt)
-    return amount
-    # for item in skus:
-    #     print(item)
-    # raise NotImplementedError()
+        product_amount = calc_product(p.description,qtt)
+        amount += product_amount
+    return amount    
 
-print(checkout('AAABCD'))
+
+
 
 
