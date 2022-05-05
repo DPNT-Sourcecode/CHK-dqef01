@@ -1,0 +1,10 @@
+#!c:\users\cibele\documents\projects\runner-for-python-windows\accelerate_runner\venv37\scripts\python.exe
+
+import os
+import stomp
+import sys
+
+stomp_path = os.path.dirname(stomp.__file__)
+executable = sys.executable or "python"
+
+os.system('%s %s %s' % (executable, stomp_path, ' '.join(sys.argv)))
