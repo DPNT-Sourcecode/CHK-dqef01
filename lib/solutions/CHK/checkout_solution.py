@@ -63,13 +63,13 @@ def calc_product(sku, qtt_product):
     product = Product(**list_products[-1])
 
     amount = 0
-    print(list_offers)
+
     if list_offers:
-        print(list_offers)
 
         for item in list_offers:
             
             offer = Offer(**item)
+            print(offer.qtt)
 
             qtt_offer = int(qtt_product / offer.qtt)
             amount = qtt_offer * offer.price
@@ -110,4 +110,4 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('AAAA'))                
+print(checkout('AAAAA'))                
