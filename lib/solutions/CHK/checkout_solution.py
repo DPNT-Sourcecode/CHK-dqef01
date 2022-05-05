@@ -25,7 +25,9 @@ product_D = {"description": "D",
 
 products = list()
 products.append(product_A)
-print(product_A)
+products.append(product_B)
+products.append(product_C)
+products.append(product_D)
 
 offer_1 = {"description": "A",
            "qtt": 3,
@@ -34,6 +36,9 @@ offer_2 = {"description": "B",
            "qtt": 2,
            "price": 45}  
 
+offers = list()
+offers.append(offer_1)
+offers.append(offer_2)
 #Product('A', 50)
 a = Product(**product_A)
 b = Product(**product_B)
@@ -56,4 +61,5 @@ def checkout(skus):
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
+
 
