@@ -62,7 +62,8 @@ def calc_product(sku, qtt_product):
     amount = 0
 
     if list_offers:
-        for item in list_offers.sort(key=lambda x:x["qtt"], reverse=True):
+        for item in list_offers.sort(key=lambda x:x["qtt"]):
+            print(item)
             offer = Offer(**item)
             qtt_offer = int(qtt_product / offer.qtt)
             amount = qtt_offer * offer.price
@@ -98,3 +99,4 @@ def checkout(skus):
         else:
             return -1
                 
+print(checkout('AAAAAAAAAAAA'))                
