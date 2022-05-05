@@ -80,10 +80,12 @@ def checkout(skus):
             qtt = skus.count(p.description)
             product_amount = calc_product(p.description,qtt)
             amount += product_amount
-        if amount == 0:
-            return -1
+        if amount > 0 or skus == "":
+            return amount
         else:
-            return amount    
+            return -1
+                
+print(checkout('AABCD'))
 
 
 
