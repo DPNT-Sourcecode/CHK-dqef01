@@ -69,16 +69,11 @@ def calc_product(sku, qtt_product):
 print(calc_product('C',8))
 
 def checkout(skus):
-    for item in skus:
-        print(item)
+    for product in products:
+        qtt = skus.count(product)
+    print(qtt)
+    # for item in skus:
+    #     print(item)
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
-
-
-
-
-
-
-
-
