@@ -64,14 +64,15 @@ def calc_product(sku, qtt_product):
     else:
         amount = product.price * qtt_product
 
-    return amount    
-
-print(calc_product('C',8))
+    return amount   
 
 def checkout(skus):
     for product in products:
-        qtt = skus.count(product)
-    print(qtt)
+        p = Product(**product)
+        qtt = skus.count(p.description)
+        sum = sum + calc_product(p.description,qtt)
+        #print(calc_product(p.description,qtt))
+    return sum
     # for item in skus:
     #     print(item)
     # raise NotImplementedError()
