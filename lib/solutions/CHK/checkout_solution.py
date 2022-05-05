@@ -71,18 +71,18 @@ def calc_product(sku, qtt_product):
 
 def checkout(skus):
     amount = 0
-    for product in products:
-        p = Product(**product)
-        qtt = skus.count(p.description)
-        product_amount = calc_product(p.description,qtt)
-        amount += product_amount
-    return amount    
 
-print(checkout('AAAaaaaaaaaaaaaaBbCD'))
+    if sum(map(str.islower, skus)) > 0:
+        return -1
+    else:
+        for product in products:
+            p = Product(**product)
+            qtt = skus.count(p.description)
+            product_amount = calc_product(p.description,qtt)
+            amount += product_amount
+        if amount == 0:
+            return -1
+        else:
+            return amount    
 
-
-
-
-
-
-
+print(checkout(''))
