@@ -51,11 +51,14 @@ o_2 = Offer(**offer_2)
 print(a.price)
 print(o_2.qtt)
 
-def calc_offer(sku, qttTotal):
+def calc_offer(sku, qtt_product):
     for offer in offers:
         if sku == offer["description"]:
-            amount = int(qttTotal / offer["qtt"])
+            qtt_offer = int(qtt_product / offer["qtt"])
+            amount = qtt_offer * offer.get('price')
+            
 
+print(calc_offer('A', 7))
 
 def checkout(skus):
     for item in skus:
@@ -63,6 +66,7 @@ def checkout(skus):
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
+
 
 
 
