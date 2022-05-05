@@ -85,7 +85,6 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('AABCD'))
 
 
 
