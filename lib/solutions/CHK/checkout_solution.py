@@ -20,7 +20,7 @@ def Product():
         self.price = price
 
 item1 = Product(product_A)     
-print(item1)
+print(item1.description)
 
 def checkout(skus):
     for item in skus:
@@ -28,4 +28,3 @@ def checkout(skus):
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
-
