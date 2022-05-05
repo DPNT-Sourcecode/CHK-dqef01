@@ -7,9 +7,12 @@ import solution_tests.SUM.test_sum as st
 
 Test = st.TestSum()
 
-result_equal = Test.test_sum_equal()
+result_equal = Test.test_sum_positive_equal()
 
-result_diff = Test.test_sum_diff()
+result_diff = Test.test_sum_positive_diff()
+
+result_negative = Test.test_sum_negative()
+
 
 
 
