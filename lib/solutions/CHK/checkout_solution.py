@@ -85,4 +85,4 @@ def checkout(skus):
         else:
             return amount    
 
-print(checkout(''))
+
