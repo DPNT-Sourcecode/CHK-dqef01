@@ -70,11 +70,11 @@ def checkout(skus):
     for product in products:
         p = Product(**product)
         qtt = skus.count(p.description)
-        sum = sum + calc_product(p.description,qtt)
-        #print(calc_product(p.description,qtt))
-    return sum
+        print(calc_product(p.description,qtt))
+    #return sum
     # for item in skus:
     #     print(item)
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
+
