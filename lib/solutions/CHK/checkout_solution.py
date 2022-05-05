@@ -52,7 +52,8 @@ o_2 = Offer(**offer_2)
 # print(o_2.qtt)
 
 def calc_offer(sku, qtt_product):
-    offers = list(filter(lambda x: x['description'] == sku, offers))
+    list_offers = list(filter(lambda x: x['description'] == sku, offers))[-1]
+    
     # offer = Offer(**list(filter(lambda x: x['description'] == sku, offers))[-1])
     # if sku == offer.description:
     #     print('OK')
@@ -73,5 +74,6 @@ def checkout(skus):
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
+
 
 
