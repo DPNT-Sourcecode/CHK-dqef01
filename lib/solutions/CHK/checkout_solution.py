@@ -56,7 +56,7 @@ def calc_offer(sku, qtt_product):
         if sku == offer["description"]:
             qtt_offer = int(qtt_product / offer["qtt"])
             amount = qtt_offer * offer.get('price')
-            
+            amount = amount + (qtt_product - qtt_offer) * 
 
 print(calc_offer('A', 7))
 
@@ -66,6 +66,7 @@ def checkout(skus):
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
+
 
 
 
