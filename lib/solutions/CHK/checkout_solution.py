@@ -4,7 +4,6 @@
 # skus = unicode string
 
 from itertools import count
-import re
 
 class Product:
     def __init__(self, description, price):
@@ -43,9 +42,10 @@ offer_3 = {"description": "A",
            "price": 200}
 
 offers = list()
+
+offers.append(offer_3)
 offers.append(offer_1)
 offers.append(offer_2)
-offers.append(offer_3)
 
 # a = Product(**product_A)
 # b = Product(**product_B)
