@@ -4,7 +4,7 @@
 # skus = unicode string
 
 from itertools import count
-
+import re
 
 class Product:
     def __init__(self, description, price):
@@ -84,5 +84,6 @@ def checkout(skus):
             return -1
         else:
             return amount    
+
 
 
