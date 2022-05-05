@@ -9,9 +9,9 @@ Test = st.TestSum()
 
 result_equal = Test.test_sum_positive_equal()
 
-result_diff = Test.test_sum_positive_diff()
+print(result_equal)
 
-result_negative = Test.test_sum_negative()
+
 
 
 
