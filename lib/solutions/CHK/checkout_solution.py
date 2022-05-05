@@ -38,7 +38,10 @@ offer_1 = {"description": "A",
 offer_2 = {"description": "B",
            "qtt": 2,
            "price": 45}  
-
+offer_3 = {"description": "A",
+           "qtt": 5,
+           "price": 200}
+           
 offers = list()
 offers.append(offer_1)
 offers.append(offer_2)
@@ -85,6 +88,7 @@ def checkout(skus):
         else:
             return -1
                 
+
 
 
 
