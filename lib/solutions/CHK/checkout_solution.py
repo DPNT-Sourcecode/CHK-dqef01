@@ -41,7 +41,7 @@ offer_2 = {"description": "B",
 offer_3 = {"description": "A",
            "qtt": 5,
            "price": 200}
-           
+
 offers = list()
 offers.append(offer_1)
 offers.append(offer_2)
@@ -60,6 +60,8 @@ def calc_product(sku, qtt_product):
     product = Product(**list_products[-1])
 
     amount = 0
+
+    for item in list_offers.sort(key=lambda x:x["qtt"], reverse=True):
 
     if list_offers:
         offer = Offer(**list_offers[-1])
@@ -88,6 +90,7 @@ def checkout(skus):
         else:
             return -1
                 
+
 
 
 
