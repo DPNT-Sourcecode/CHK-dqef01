@@ -19,9 +19,3 @@ def hello(friend_name):
 print(hello('Cibele'))
 # if __name__ == "__main__":
 #     app.run()
-
-
-
-
-
-
