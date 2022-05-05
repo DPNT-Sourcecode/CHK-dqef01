@@ -16,9 +16,13 @@ product_C = {"description": "C",
              "price": 20}  
 product_D = {"description": "D",
              "price": 15}
+
 offer_1 = {"description": "A",
            "qtt": 3,
-           "price": 130}                                                
+           "price": 130}   
+offer_2 = {"description": "B",
+           "qtt": 2,
+           "price": 45}                                                         
 #Product('A', 50)
 a = Product(**product_A)
 print(a.price)
@@ -29,7 +33,3 @@ def checkout(skus):
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
-
-
-
-
