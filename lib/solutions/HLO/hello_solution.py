@@ -11,14 +11,15 @@
 def hello(friend_name):
     try:
         if friend_name:
-            return('Hello, World!')
+            return('Hello, %s!' % (friend_name))
     except:
         raise Exception('Error')    
     # return('Hello World, %s!' % (friend_name))
 
-print(hello('X'))
+print(hello('Cibele'))
 # if __name__ == "__main__":
 #     app.run()
+
 
 
 
