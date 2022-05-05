@@ -14,6 +14,3 @@ print(result_equal)
 
 
 
-
-
-
