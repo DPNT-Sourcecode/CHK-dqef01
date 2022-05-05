@@ -57,6 +57,7 @@ offers.append(offer_2)
 
 def calc_product(sku, qtt_product):
     list_offers = list(filter(lambda x: x['description'] == sku, offers))
+    list_offers = list(filter(lambda x: x['qtt'] <= qtt_product, list_offers))
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
 
@@ -104,5 +105,6 @@ def checkout(skus):
             return -1
                 
 print(checkout('AA'))                
+
 
 
