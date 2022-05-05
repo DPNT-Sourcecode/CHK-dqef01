@@ -23,6 +23,10 @@ product_C = {"description": "C",
 product_D = {"description": "D",
              "price": 15}
 
+products = list()
+products.append(product_A)
+print(product_A)
+
 offer_1 = {"description": "A",
            "qtt": 3,
            "price": 130}   
@@ -42,9 +46,14 @@ o_2 = Offer(**offer_2)
 print(a.price)
 print(o_2.qtt)
 
+def calc_offer(sku):
+
+
+
 def checkout(skus):
     for item in skus:
         print(item)
     # raise NotImplementedError()
 
 print(checkout('AAABCD'))
+
