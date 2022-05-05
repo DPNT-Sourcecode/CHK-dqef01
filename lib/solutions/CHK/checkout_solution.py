@@ -61,8 +61,7 @@ def calc_product(sku, qtt_product):
     product = Product(**list_products[-1])
 
     amount = 0
-    
-    print(list_offers)
+  
     if list_offers:
         #list_offers_sorted = list_offers.sort(key=lambda x:x["qtt"], reverse=True) 
         #print(list_offers_sorted)
@@ -104,4 +103,5 @@ def checkout(skus):
             return -1
                 
 print(checkout('AAAAA'))                
+
 
