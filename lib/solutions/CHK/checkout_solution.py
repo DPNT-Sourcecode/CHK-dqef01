@@ -110,6 +110,7 @@ def checkout(skus):
             
             if list_offers:
                 offer = Offer(**list_offers[-1])
+                print(offer.description)
 
                 if offer.get_one_free != "":
                     list_products_free = list(filter(lambda x: x['description'] == offer.get_one_free, products))
@@ -117,6 +118,7 @@ def checkout(skus):
                     qtt_for_free = skus.count(offer.get_one_free)
 
                     if qtt_for_free > 0:
+                        print("passed")
                         amount = amount - product_for_free.price
                         
         if amount > 0 or skus == "":
