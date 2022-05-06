@@ -58,8 +58,10 @@ product_Q = {"description": "Q",
              "price": 30}
 product_R = {"description": "R",
              "price": 50}
+# product_S = {"description": "S",
+#              "price": 30}
 product_S = {"description": "S",
-             "price": 30}
+             "price": 20}
 product_T = {"description": "T",
              "price": 20}
 product_U = {"description": "U",
@@ -68,12 +70,18 @@ product_V = {"description": "V",
              "price": 50}
 product_W = {"description": "W",
              "price": 20}
+# product_X = {"description": "X",
+#              "price": 90}
 product_X = {"description": "X",
-             "price": 90}
+             "price": 17}             
+# product_Y = {"description": "Y",
+#              "price": 10}
 product_Y = {"description": "Y",
-             "price": 10}
+             "price": 20}             
+# product_Z = {"description": "Z",
+#              "price": 50}
 product_Z = {"description": "Z",
-             "price": 50}
+             "price": 21}
 #creating and insertint a list of products
 
 products = list()
@@ -267,4 +275,5 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
 
