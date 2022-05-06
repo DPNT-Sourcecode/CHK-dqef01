@@ -42,7 +42,7 @@ product_J = {"description": "J",
              "price": 60}
 product_K = {"description": "K",
              "price": 80}
-product_K = {"description": "L",
+product_L = {"description": "L",
              "price": 90}
 product_M = {"description": "M",
              "price": 15}
@@ -66,7 +66,7 @@ product_V = {"description": "V",
              "price": 50}
 product_W = {"description": "W",
              "price": 20}
-product_Z = {"description": "Z",
+product_X = {"description": "X",
              "price": 90}
 product_Y = {"description": "Y",
              "price": 10}
@@ -76,13 +76,33 @@ product_Z = {"description": "Z",
 
 products = list()
 # for x in skus_registered:
-
 products.append(product_A)
 products.append(product_B)
 products.append(product_C)
 products.append(product_D)
 products.append(product_E)
 products.append(product_F)
+products.append(product_G)
+products.append(product_H)
+products.append(product_I)
+products.append(product_J)
+products.append(product_K)
+products.append(product_L)
+products.append(product_M)
+products.append(product_N)
+products.append(product_O)
+products.append(product_P)
+products.append(product_Q)
+products.append(product_R)
+products.append(product_S)
+products.append(product_T)
+products.append(product_U)
+products.append(product_V)
+products.append(product_W)
+products.append(product_X)
+products.append(product_Y)
+products.append(product_Z)
+
 #defining the offer attribute values as we won't have any database
 offer_1 = {"description": "A",
            "qtt": 3,
@@ -263,6 +283,7 @@ def checkout(skus):
         else:
             return -1
                 
-# print(checkout('FFFFFF'))    
+print(checkout('FFFFFF'))    
+
 
 
