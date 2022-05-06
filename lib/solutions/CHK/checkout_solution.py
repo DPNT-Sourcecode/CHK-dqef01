@@ -95,8 +95,13 @@ def calc_product(skus, sku, qtt_product):
                 if offer.product_free != "":
                     list_products_free = list(filter(lambda x: x['description'] == offer.product_free, products))
                     product_for_free = Product(**list_products_free[-1])
-                    qtt_products = skus.count(offer.product_free)
-
+                    qtt_products_free = skus.count(offer.product_free)
+                    
+                    while qtt_products_free >= offer.product_free_qtt:
+                        print(amount)
+                        print(qtt_products_free)
+                        amount = amount - (product_for_free.price * offer.product_free_qtt)
+                        qtt_products_free = qtt_products_free - offer.product_free_qtt
 
         if rest > 0:
             amount = amount + (rest * product.price)
