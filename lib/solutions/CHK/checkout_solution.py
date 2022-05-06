@@ -88,6 +88,7 @@ def calc_product(sku, qtt_product):
                 qtt_product = qtt_product - offer.qtt
 
                 print(qtt_product)
+         
                 
 
         if rest > 0:
@@ -130,5 +131,3 @@ def checkout(skus):
             return -1
                 
 print(checkout('AAAAAAAAAA'))                
-
-
