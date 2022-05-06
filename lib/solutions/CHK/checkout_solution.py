@@ -281,7 +281,12 @@ def remove_skus_free(skus):
     return skus
 # calc group of offers    
 def calc_groups(skus):
+    for item in list_groups:
+        group = Group_Offer(**item)
+        
     for s in skus:
+            
+
 
 # expected checkout function
 def checkout(skus):
@@ -303,12 +308,3 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
-
-
-
-
-
-
-
-
-
