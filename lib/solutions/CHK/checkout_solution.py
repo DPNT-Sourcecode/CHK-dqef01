@@ -278,10 +278,10 @@ def remove_skus_free(skus):
                     while qtt_skus_offer >= offer.qtt:
                         qtt_skus_offer = qtt_skus_offer - offer.qtt
                         skus = skus.replace(offer.product_free, "", offer.product_free_qtt)
-                        
     return skus
-def calc_groups(skus):
-
+# calc group of offers    
+# def calc_groups(skus):
+#     for s in skus:
 
 # expected checkout function
 def checkout(skus):
@@ -303,6 +303,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
 
 
 
