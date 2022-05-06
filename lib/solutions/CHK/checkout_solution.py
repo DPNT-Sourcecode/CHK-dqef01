@@ -75,9 +75,11 @@ def calc_product(skus, sku, qtt_product):
     product = Product(**list_products[-1])
 
     list_extra_offer = list(filter(lambda x: x['product_free'] == sku, offers))
-    print(list_extra_offer)
     
-    if list_offers and list_extra_offer is None:
+    if list_offers and not list_extra_offer:
+        print(list_offers)
+        print(list_extra_offer)
+
         amount = 0
         rest = 0
         for item in list_offers:
@@ -143,5 +145,6 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))                
+
 
 
