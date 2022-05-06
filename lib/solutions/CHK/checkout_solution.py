@@ -75,8 +75,10 @@ def calc_product(skus, sku, qtt_product):
 
     # look up extra offers to avoid having duplicated offers
     list_extra_offer = list(filter(lambda x: x['product_free'] == sku, offers))
+    # verify if description exists in skus
     cancel_offer = False
     if list_extra_offer: 
+        extra_offer = Offer(**list_extra_offer[-1])
         cancel_offer = True
     
     if list_offers and not cancel_offer:
