@@ -29,6 +29,8 @@ product_D = {"description": "D",
              "price": 15}
 product_E = {"description": "E",
              "price": 40}
+product_F = {"description": "F",
+             "price": 10}
 #creating and insertint a list of products
 products = list()
 products.append(product_A)
@@ -36,6 +38,7 @@ products.append(product_B)
 products.append(product_C)
 products.append(product_D)
 products.append(product_E)
+products.append(product_F)
 #defining the offer attribute values as we won't have any database
 offer_1 = {"description": "A",
            "qtt": 3,
@@ -57,6 +60,11 @@ offer_4 = {"description": "E",
            "price": 80,
            "product_free": "B",
            "product_free_qtt": 1}
+offer_5 = {"description": "F",
+           "qtt": 2,
+           "price": 20,
+           "product_free": "F",
+           "product_free_qtt": 1}           
 #creating and insertint a list of offers
 offers = list()
 offers.append(offer_3)
@@ -151,7 +159,8 @@ def checkout(skus):
         else:
             return -1
                 
-# print(checkout('-'))    
+print(checkout('-'))    
+
 
 
 
