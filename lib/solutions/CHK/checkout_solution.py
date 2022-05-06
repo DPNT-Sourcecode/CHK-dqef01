@@ -189,6 +189,12 @@ offer_15 = {"description": "V",
            "price": 90,
            "product_free": "",
            "product_free_qtt": 0}
+
+offer_G = {"description": "&",
+           "qtt": 3,
+           "price": 45,
+           "product_free": "",
+           "product_free_qtt": 0}           
 #creating and insertint a list of offers
 offers = list()
 offers.append(offer_3)
@@ -275,5 +281,6 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
 
 
