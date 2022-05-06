@@ -64,10 +64,13 @@ offers.append(offer_1)
 offers.append(offer_2)
 offers.append(offer_4)
 
+# function to calculate the products according to the expected rules
 def calc_product(skus, sku, qtt_product):
+    # look up the offer
     list_offers = list(filter(lambda x: x['description'] == sku, offers))
     list_offers = list(filter(lambda x: x['qtt'] <= qtt_product, list_offers))
     
+    #look up the product and instantiate it
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
     
@@ -84,7 +87,7 @@ def calc_product(skus, sku, qtt_product):
                 rest = (qtt_product - (qtt_offer * offer.qtt))
                 qtt_product = qtt_product - offer.qtt
 
-                if offer.product_free != "":
+                if offer.product_free != "" and offer.product_free_qtt > 0:
                     list_products_free = list(filter(lambda x: x['description'] == offer.product_free, products))
                     product_for_free = Product(**list_products_free[-1])
                     qtt_products_free = skus.count(offer.product_free)
@@ -102,7 +105,7 @@ def calc_product(skus, sku, qtt_product):
         amount = product.price * qtt_product
 
     return amount   
-
+# expected checkout function
 def checkout(skus):
     amount = 0
 
