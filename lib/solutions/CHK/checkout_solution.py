@@ -71,6 +71,7 @@ offers.append(offer_3)
 offers.append(offer_1)
 offers.append(offer_2)
 offers.append(offer_4)
+offers.append(offer_5)
 # function to calculate the products according to the expected rules
 def calc_product(skus, sku, qtt_product):
     # look up the offer
@@ -159,7 +160,8 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('-'))    
+# print(checkout('FFFFFF'))    
+
 
 
 
