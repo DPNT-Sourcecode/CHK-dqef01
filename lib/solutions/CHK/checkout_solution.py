@@ -265,9 +265,3 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
-
-
-
-
-
-
