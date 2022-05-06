@@ -75,7 +75,7 @@ product_Z = {"description": "Z",
 #creating and insertint a list of products
 
 products = list()
-for x in skus_registered:
+# for x in skus_registered:
 
 products.append(product_A)
 products.append(product_B)
@@ -154,7 +154,7 @@ offer_14 = {"description": "V",
            "price": 130,
            "product_free": "",
            "product_free_qtt": 0}
-offer_14 = {"description": "V",
+offer_15 = {"description": "V",
            "qtt": 2,
            "price": 90,
            "product_free": "",
@@ -166,6 +166,15 @@ offers.append(offer_1)
 offers.append(offer_2)
 offers.append(offer_4)
 offers.append(offer_5)
+offers.append(offer_6)
+offers.append(offer_7)
+offers.append(offer_8)
+offers.append(offer_9)
+offers.append(offer_10)
+offers.append(offer_12)
+offers.append(offer_13)
+offers.append(offer_14)
+offers.append(offer_15)
 # function to calculate the products according to the expected rules
 def calc_product(skus, sku, qtt_product):
     # look up the offer
@@ -255,4 +264,5 @@ def checkout(skus):
             return -1
                 
 # print(checkout('FFFFFF'))    
+
 
