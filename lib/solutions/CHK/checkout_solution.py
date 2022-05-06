@@ -73,15 +73,15 @@ def calc_product(skus, sku, qtt_product):
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
 
-    # look up extra offers to avoid having duplicated offers
-    list_extra_offer = list(filter(lambda x: x['product_free'] == sku, offers))
-    # verify if description exists in skus
-    qtt_skus_offer = 0
-    if list_extra_offer: 
-        extra_offer = Offer(**list_extra_offer[-1])
-        qtt_skus_offer = skus.count(extra_offer.description)
-        # if skus.count(extra_offer.description) > extra_offer.product_free_qtt:
-        #     cancel_offer = True
+    # # look up extra offers to avoid having duplicated offers
+    # list_extra_offer = list(filter(lambda x: x['product_free'] == sku, offers))
+    # # verify if description exists in skus
+    # qtt_skus_offer = 0
+    # if list_extra_offer: 
+    #     extra_offer = Offer(**list_extra_offer[-1])
+    #     qtt_skus_offer = skus.count(extra_offer.description)
+    #     # if skus.count(extra_offer.description) > extra_offer.product_free_qtt:
+    #     #     cancel_offer = True
     
     if list_offers:
         amount = 0
@@ -121,20 +121,14 @@ def remove_skus_free(skus):
         list_extra_offer = list(filter(lambda x: x['description'] == p.description, offers))
         # verify if description exists in skus
         if list_extra_offer:
-            
             for extra_offer in list_extra_offer:
                 offer = Offer(**extra_offer)
                 if offer.product_free != "" and offer.product_free_qtt > 0:
                     qtt_skus_offer = skus.count(p.description) #4
-                    # qtt_skus_free = skus.count(offer.product_free)
                     while qtt_skus_offer >= offer.qtt:
                         qtt_skus_offer = qtt_skus_offer - offer.qtt
-                        print(offer.product_free)
-                        x = "EEEEBB"
-                        print(x)
+                        skus = skus.replace(offer.product_free, "")
                         
-                        x.replace(offer.product_free, "")
-                        print(x)
     return skus
 
 # expected checkout function
@@ -157,6 +151,7 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('EEEEBB'))    
+print(checkout('ABCDECBAABCABBAAAEEAA'))    
+
 
 
