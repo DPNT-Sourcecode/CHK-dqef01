@@ -108,6 +108,7 @@ def checkout(skus):
 
             list_offers = list(filter(lambda x: x['description'] == p.description, offers))
             
+            print(list_offers)
             if list_offers:
                 offer = Offer(**list_offers[-1])
 
@@ -124,7 +125,7 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('EE'))                
+print(checkout('EEEE'))                
 
 
 
