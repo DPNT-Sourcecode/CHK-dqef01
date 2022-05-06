@@ -34,8 +34,13 @@ group_offer_4 = {"group": "&",
                  "sku": "Y"}
 group_offer_5 = {"group": "&",
                  "sku": "Z"}
+list_groups = list()
+list_groups.append(group_offer_1) 
+list_groups.append(group_offer_2)
+list_groups.append(group_offer_3)
+list_groups.append(group_offer_4)
+list_groups.append(group_offer_5)                
 #defining the product attribute values as we won't have any database
-skus_registered = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 product_A = {"description": "A",
              "price": 50}
 product_B = {"description": "B",
@@ -298,6 +303,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
 
 
 
