@@ -40,8 +40,10 @@ product_I = {"description": "I",
              "price": 35}
 product_J = {"description": "J",
              "price": 60}
+# product_K = {"description": "K",
+#              "price": 80}
 product_K = {"description": "K",
-             "price": 80}
+             "price": 70}
 product_L = {"description": "L",
              "price": 90}
 product_M = {"description": "M",
@@ -265,3 +267,4 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
