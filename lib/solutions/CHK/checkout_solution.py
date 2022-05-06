@@ -133,12 +133,22 @@ offer_10 = {"description": "P",
            "price": 200,
            "product_free": "",
            "product_free_qtt": 0}  
+offer_11 = {"description": "Q",
+           "qtt": 3,
+           "price": 80,
+           "product_free": "",
+           "product_free_qtt": 0}
+offer_12 = {"description": "R",
+           "qtt": 3,
+           "price": 150,
+           "product_free": "Q",
+           "product_free_qtt": 1}
+offer_12 = {"description": "U",
+           "qtt": 4,
+           "price": 160,
+           "product_free": "U",
+           "product_free_qtt": 1}
 
-| P    | 50    | 5P for 200             |
-| Q    | 30    | 3Q for 80              |
-| R    | 50    | 3R get one Q free      |
-| S    | 30    |                        |
-| T    | 20    |                        |
 | U    | 40    | 3U get one U free      |
 | V    | 50    | 2V for 90, 3V for 130  |
 
@@ -238,6 +248,7 @@ def checkout(skus):
             return -1
                 
 # print(checkout('FFFFFF'))    
+
 
 
 
