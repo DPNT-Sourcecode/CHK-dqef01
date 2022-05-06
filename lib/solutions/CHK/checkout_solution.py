@@ -121,6 +121,7 @@ def remove_skus_free(skus):
         list_extra_offer = list(filter(lambda x: x['description'] == p.description, offers))
         # verify if description exists in skus
         if list_extra_offer:
+            print(list_extra_offer)
             for extra_offer in list_extra_offer:
                 offer = Offer(**extra_offer)
                 if offer.product_free != "" and offer.product_free_qtt > 0:
@@ -136,8 +137,9 @@ def remove_skus_free(skus):
 
 # expected checkout function
 def checkout(skus):
+    skus = remove_skus_free(skus)
+    
     amount = 0
-
     if sum(map(str.islower, skus)) > 0:
         return -1
     else:
@@ -154,5 +156,6 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))    
+
 
 
