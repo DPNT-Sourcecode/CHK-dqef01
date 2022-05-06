@@ -70,19 +70,17 @@ def calc_product(skus, sku, qtt_product):
     list_offers = list(filter(lambda x: x['description'] == sku, offers))
     list_offers = list(filter(lambda x: x['qtt'] <= qtt_product, list_offers))
     
-    #look up the product and instantiate it
+    # look up the product and instantiate it
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
 
+    # look up extra offers to avoid having duplicated offers
     list_extra_offer = list(filter(lambda x: x['product_free'] == sku, offers))
     cancel_offer = False
     if list_extra_offer: 
         cancel_offer = True
     
     if list_offers and not cancel_offer:
-        print(list_offers)
-        print(list_extra_offer)
-
         amount = 0
         rest = 0
         for item in list_offers:
@@ -94,9 +92,7 @@ def calc_product(skus, sku, qtt_product):
                 amount = amount + offer.price
                 rest = (qtt_product - (qtt_offer * offer.qtt))
                 qtt_product = qtt_product - offer.qtt
-
-                print(amount)
-
+                
                 if offer.product_free != "" and offer.product_free_qtt > 0:
                     list_products_free = list(filter(lambda x: x['description'] == offer.product_free, products))
                     product_for_free = Product(**list_products_free[-1])
@@ -105,15 +101,14 @@ def calc_product(skus, sku, qtt_product):
                     while qtt_products_free >= offer.product_free_qtt:
                         amount = amount - (product_for_free.price * offer.product_free_qtt)
                         qtt_products_free = qtt_products_free - offer.product_free_qtt
-                        print(amount)
-                        print(qtt_products_free)
-
+                        
         if rest > 0:
             amount = amount + (rest * product.price)
 
     else:
         amount = product.price * qtt_product
-
+        
+    print(amount)
     return amount   
 # expected checkout function
 def checkout(skus):
@@ -148,6 +143,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))                
+
 
 
 
