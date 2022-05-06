@@ -73,7 +73,10 @@ product_Y = {"description": "Y",
 product_Z = {"description": "Z",
              "price": 50}
 #creating and insertint a list of products
+
 products = list()
+for x in skus_registered:
+
 products.append(product_A)
 products.append(product_B)
 products.append(product_C)
@@ -252,3 +255,4 @@ def checkout(skus):
             return -1
                 
 # print(checkout('FFFFFF'))    
+
