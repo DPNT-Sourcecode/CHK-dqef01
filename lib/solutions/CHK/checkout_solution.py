@@ -112,7 +112,7 @@ def checkout(skus):
                 if list_offers:
                     offer = Offer(**list_offers[-1])
                     
-                    if offer.get_one_free != "":
+                    if offer.get_one_free != "" and qtt > offer.qtt:
                         list_products_free = list(filter(lambda x: x['description'] == offer.get_one_free, products))
                         product_for_free = Product(**list_products_free[-1])
                         qtt_for_free = skus.count(offer.get_one_free)
@@ -125,4 +125,4 @@ def checkout(skus):
         else:
             return -1
                 
-# print(checkout('AAAAA'))                
+print(checkout('ABCDE'))                
