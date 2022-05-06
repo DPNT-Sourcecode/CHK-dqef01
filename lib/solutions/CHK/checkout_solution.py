@@ -31,22 +31,48 @@ product_E = {"description": "E",
              "price": 40}
 product_F = {"description": "F",
              "price": 10}
-product_F = {"description": "F",
+product_G = {"description": "G",
+             "price": 20}
+product_H = {"description": "H",
              "price": 10}
+product_I = {"description": "I",
+             "price": 35}
+product_J = {"description": "J",
+             "price": 60}
+product_K = {"description": "K",
+             "price": 80}
+product_K = {"description": "L",
+             "price": 90}
+product_M = {"description": "M",
+             "price": 15}
+product_N = {"description": "N",
+             "price": 40}
+product_O = {"description": "O",
+             "price": 10}
+product_P = {"description": "P",
+             "price": 50}
+product_Q = {"description": "Q",
+             "price": 30}
+product_R = {"description": "R",
+             "price": 50}
+product_S = {"description": "S",
+             "price": 30}
+product_T = {"description": "T",
+             "price": 20}
+product_U = {"description": "U",
+             "price": 40}
+product_V = {"description": "V",
+             "price": 50}
+product_W = {"description": "W",
+             "price": 20}
+product_Z = {"description": "Z",
+             "price": 90}
+product_Y = {"description": "Y",
+             "price": 10}
+product_Z = {"description": "Z",
+             "price": 50}
 
-| G    | 20    |                        |
-| H    | 10    | 5H for 45, 10H for 80  |
-| I    | 35    |                        |
-| J    | 60    |                        |
-| K    | 80    | 2K for 150             |
-| L    | 90    |                        |
-| M    | 15    |                        |
-| N    | 40    | 3N get one M free      |
-| O    | 10    |                        |
-| P    | 50    | 5P for 200             |
-| Q    | 30    | 3Q for 80              |
-| R    | 50    | 3R get one Q free      |
-| S    | 30    |                        |
+
 | T    | 20    |                        |
 | U    | 40    | 3U get one U free      |
 | V    | 50    | 2V for 90, 3V for 130  |
@@ -184,5 +210,6 @@ def checkout(skus):
             return -1
                 
 # print(checkout('FFFFFF'))    
+
 
 
