@@ -91,11 +91,13 @@ def calc_product(skus, sku, qtt_product):
 
             while qtt_product >= offer.qtt:
                 
+                # calc normal offer
                 qtt_offer = int(qtt_product / offer.qtt)
                 amount = amount + offer.price
                 rest = (qtt_product - (qtt_offer * offer.qtt))
                 qtt_product = qtt_product - offer.qtt
                 
+                # calc rule to get products for free
                 if offer.product_free != "" and offer.product_free_qtt > 0:
                     list_products_free = list(filter(lambda x: x['description'] == offer.product_free, products))
                     product_for_free = Product(**list_products_free[-1])
@@ -132,5 +134,6 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))    
+
 
 
