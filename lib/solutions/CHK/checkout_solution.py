@@ -160,4 +160,5 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('FFFFF'))    
+# print(checkout('FFFFFF'))    
+
