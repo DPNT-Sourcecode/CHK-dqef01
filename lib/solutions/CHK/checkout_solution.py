@@ -5,11 +5,12 @@
 
 from itertools import count
 
+# creating product class
 class Product:
     def __init__(self, description, price):
         self.description = description
         self.price = price
-
+# creating offer class
 class Offer:
     def __init__(self, description, price, qtt, product_free, product_free_qtt):
         self.description = description
@@ -17,7 +18,7 @@ class Offer:
         self.qtt = qtt
         self.product_free = product_free
         self.product_free_qtt = product_free_qtt
-
+#defining the product attribute values as we won't have any database
 product_A = {"description": "A",
              "price": 50}
 product_B = {"description": "B",
@@ -28,14 +29,14 @@ product_D = {"description": "D",
              "price": 15}
 product_E = {"description": "E",
              "price": 40}
-
+#creating and insertint a list of products
 products = list()
 products.append(product_A)
 products.append(product_B)
 products.append(product_C)
 products.append(product_D)
 products.append(product_E)
-
+#defining the offer attribute values as we won't have any database
 offer_1 = {"description": "A",
            "qtt": 3,
            "price": 130,
@@ -56,21 +57,12 @@ offer_4 = {"description": "E",
            "price": 80,
            "product_free": "B",
            "product_free_qtt": 1}
-
+#creating and insertint a list of offers
 offers = list()
-
 offers.append(offer_3)
 offers.append(offer_1)
 offers.append(offer_2)
 offers.append(offer_4)
-
-# a = Product(**product_A)
-# b = Product(**product_B)
-# c = Product(**product_C)
-# d = Product(**product_D)
-
-# o_1 = Offer(**offer_1)
-# o_2 = Offer(**offer_2)
 
 def calc_product(skus, sku, qtt_product):
     list_offers = list(filter(lambda x: x['description'] == sku, offers))
