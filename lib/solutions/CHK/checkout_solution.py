@@ -114,6 +114,23 @@ def calc_product(skus, sku, qtt_product):
         amount = product.price * qtt_product
 
     return amount   
+def remove_skus_free(skus):
+    for product in products:
+        p = Product(**product)
+        qtt_skus = skus.count(p.description)
+        # look up extra offers to avoid having duplicated offers
+        list_extra_offer = list(filter(lambda x: x['product_free'] == p.description, offers))
+        # verify if description exists in skus
+        qtt_skus_offer = 0
+        if list_extra_offer: 
+            extra_offer = Offer(**list_extra_offer[-1])
+            qtt_skus_offer = skus.count(extra_offer.description)
+            # if skus.count(extra_offer.description) > extra_offer.product_free_qtt:
+            #     cancel_offer = True
+    
+
+    return skus
+
 # expected checkout function
 def checkout(skus):
     amount = 0
@@ -134,3 +151,4 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))    
+
