@@ -11,10 +11,11 @@ class Product:
         self.price = price
 
 class Offer:
-    def __init__(self, description, price, qtt):
+    def __init__(self, description, price, qtt, get_one_free):
         self.description = description
         self.price = price
         self.qtt = qtt
+        self.get_one_free = get_one_free
 
 product_A = {"description": "A",
              "price": 50}
@@ -33,16 +34,21 @@ products.append(product_D)
 
 offer_1 = {"description": "A",
            "qtt": 3,
-           "price": 130}   
+           "price": 130,
+           "get_one_free" : ""}   
 offer_2 = {"description": "B",
            "qtt": 2,
-           "price": 45}  
+           "price": 45,
+           "get_one_free" : ""}  
 offer_3 = {"description": "A",
            "qtt": 5,
-           "price": 200}
+           "price": 200,
+           "get_one_free": ""}
 offer_3 = {"description": "E",
            "qtt": 2,
-           "price": 50}
+           "price": 80,
+           "get_one_free": "B"}
+           
 offers = list()
 
 offers.append(offer_3)
