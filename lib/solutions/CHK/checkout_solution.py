@@ -62,7 +62,7 @@ offer_4 = {"description": "E",
            "product_free_qtt": 1}
 offer_5 = {"description": "F",
            "qtt": 3,
-           "price": 20,
+           "price": 30,
            "product_free": "F",
            "product_free_qtt": 1}           
 #creating and insertint a list of offers
@@ -160,13 +160,4 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('FFF'))    
-
-
-
-
-
-
-
-
-
+print(checkout('FFFFF'))    
