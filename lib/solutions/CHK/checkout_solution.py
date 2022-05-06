@@ -131,7 +131,7 @@ def remove_skus_free(skus):
                         qtt_skus_offer = qtt_skus_offer - offer.qtt
                         print(skus)
                         print(offer.product_free)
-                        skus.replace(offer.product_free, "")
+                        skus.replace(str(offer.product_free), "")
                         print(skus)
     return skus
 
@@ -156,3 +156,4 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))    
+
