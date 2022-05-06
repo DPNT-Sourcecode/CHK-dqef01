@@ -61,7 +61,7 @@ offer_4 = {"description": "E",
            "product_free": "B",
            "product_free_qtt": 1}
 offer_5 = {"description": "F",
-           "qtt": 2,
+           "qtt": 3,
            "price": 20,
            "product_free": "F",
            "product_free_qtt": 1}           
@@ -160,7 +160,8 @@ def checkout(skus):
         else:
             return -1
                 
-# print(checkout('FFFFFF'))    
+print(checkout('FFF'))    
+
 
 
 
