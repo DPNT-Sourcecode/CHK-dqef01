@@ -127,11 +127,11 @@ def remove_skus_free(skus):
                 if offer.product_free != "" and offer.product_free_qtt > 0:
                     qtt_skus_offer = skus.count(p.description) #4
                     # qtt_skus_free = skus.count(offer.product_free)
-                    while qtt_skus_offer > offer.qtt:
+                    while qtt_skus_offer >= offer.qtt:
                         qtt_skus_offer = qtt_skus_offer - offer.qtt
                         print(skus)
                         print(offer.product_free)
-                        skus.replace(offer.product_free, '')
+                        skus.replace(offer.product_free, "")
                         print(skus)
     return skus
 
@@ -156,8 +156,3 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))    
-
-
-
-
-
