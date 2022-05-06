@@ -66,19 +66,20 @@ def calc_product(sku, qtt_product):
     
     if list_offers:
         list_offers = list(filter(lambda x: x['qtt'] <= qtt_product, list_offers))
-        print(list_offers)
-
+    
         amount = 0
         rest = 0
         for item in list_offers:
             offer = Offer(**item)
-            qtt_offer = int(qtt_product / offer.qtt)
-            amount = amount + qtt_offer * offer.price
-            rest = (qtt_product - (qtt_offer * offer.qtt))
-            qtt_product = qtt_product - rest
-            print(amount)
-            print(rest)
-            print(qtt_product)
+            while qtt_product >= offer.qtt:
+            
+                qtt_offer = int(qtt_product / offer.qtt)
+                amount = amount + qtt_offer * offer.price
+                rest = (qtt_product - (qtt_offer * offer.qtt))
+                qtt_product = qtt_product - qtt_offer
+                print(amount)
+                print(rest)
+                print(qtt_product)
             
         if rest > 0:
             amount = amount + (rest * product.price)
@@ -105,6 +106,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('AAAAA'))                
+
 
 
 
