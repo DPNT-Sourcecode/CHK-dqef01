@@ -19,9 +19,7 @@ class Offer:
         self.product_free = product_free
         self.product_free_qtt = product_free_qtt
 #defining the product attribute values as we won't have any database
-skus_registered = [
-
-]
+skus_registered = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 product_A = {"description": "A",
              "price": 50}
 product_B = {"description": "B",
@@ -143,15 +141,21 @@ offer_12 = {"description": "R",
            "price": 150,
            "product_free": "Q",
            "product_free_qtt": 1}
-offer_12 = {"description": "U",
+offer_13 = {"description": "U",
            "qtt": 4,
            "price": 160,
            "product_free": "U",
            "product_free_qtt": 1}
-
-| U    | 40    | 3U get one U free      |
-| V    | 50    | 2V for 90, 3V for 130  |
-
+offer_14 = {"description": "V",
+           "qtt": 3,
+           "price": 130,
+           "product_free": "",
+           "product_free_qtt": 0}
+offer_14 = {"description": "V",
+           "qtt": 2,
+           "price": 90,
+           "product_free": "",
+           "product_free_qtt": 0}
 #creating and insertint a list of offers
 offers = list()
 offers.append(offer_3)
@@ -248,9 +252,3 @@ def checkout(skus):
             return -1
                 
 # print(checkout('FFFFFF'))    
-
-
-
-
-
-
