@@ -40,12 +40,15 @@ offer_2 = {"description": "B",
 offer_3 = {"description": "A",
            "qtt": 5,
            "price": 200}
-
+offer_3 = {"description": "E",
+           "qtt": 2,
+           "price": 50}
 offers = list()
 
 offers.append(offer_3)
 offers.append(offer_1)
 offers.append(offer_2)
+offers.append(offer_3)
 
 # a = Product(**product_A)
 # b = Product(**product_B)
@@ -98,4 +101,4 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('AAAAAAA'))                
+print(checkout('B'))                
