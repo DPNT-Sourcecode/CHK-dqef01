@@ -71,15 +71,6 @@ product_Y = {"description": "Y",
              "price": 10}
 product_Z = {"description": "Z",
              "price": 50}
-
-
-| T    | 20    |                        |
-| U    | 40    | 3U get one U free      |
-| V    | 50    | 2V for 90, 3V for 130  |
-| W    | 20    |                        |
-| X    | 90    |                        |
-| Y    | 10    |                        |
-| Z    | 50
 #creating and insertint a list of products
 products = list()
 products.append(product_A)
@@ -210,6 +201,7 @@ def checkout(skus):
             return -1
                 
 # print(checkout('FFFFFF'))    
+
 
 
 
