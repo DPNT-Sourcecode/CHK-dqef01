@@ -57,50 +57,29 @@ offers.append(offer_2)
 
 def calc_product(sku, qtt_product):
     list_offers = list(filter(lambda x: x['description'] == sku, offers))
-    list_offers = list(filter(lambda x: x['qtt'] <= qtt_product, list_offers))
     
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
 
     amount = 0
 
-    if list_offers:
-        rest = 0
+    while qtt_product <= 0:
+        if list_offers:
+            list_offers = list(filter(lambda x: x['qtt'] <= qtt_product, list_offers))
 
-        for item in list_offers:
-            offer = Offer(**item)
-
-            if rest > offer.qtt or rest == 0:
-
+            amount = 0
+            for item in list_offers:
+                offer = Offer(**item)
                 qtt_offer = int(qtt_product / offer.qtt)
-            value = qtt_offer * offer.price
-            if rest == 0:
+                amount = amount + qtt_offer * offer.price
                 rest = (qtt_product - (qtt_offer * offer.qtt))
-            else:
-                rest = rest    
-
-            amount += value
-
-            # list_rest_offers = list(filter(lambda x: x['qtt'] <= rest, list_offers))
-            # if list_rest_offers is None:
-            #     break
-
+                qtt_product = qtt_product - rest
             
+            if rest > 0:
+                amount = amount + (rest * product.price)
 
-            # more_offers = list(filter(lambda x: x['qtt'] <= rest, list_offers))
-            # print(amount)
-            
-            # if more_offers:
-            #     new_offer = Offer(**more_offers[-1])
-            #     qtt_new_offer = int(rest / new_offer.qtt)
-            #     amount_new = qtt_new_offer * new_offer.price
-            #     new_rest = (rest - (qtt_new_offer * new_offer.price))
-            #     amount = amount + amount_new + (new_rest * product.price)
-
-        amount = value + (rest * product.price)
-
-    else:
-        amount = product.price * qtt_product
+        else:
+            amount = product.price * qtt_product
 
     return amount   
 
@@ -121,3 +100,4 @@ def checkout(skus):
             return -1
                 
 print(checkout('AAAAA'))                
+
