@@ -20,8 +20,19 @@ class Offer:
         self.product_free_qtt = product_free_qtt
 class Group_Offer:
     def __init__(self, group, sku):
-        self.id = group
-        self.sku = sku        
+        self.group = group
+        self.sku = sku     
+group_offer = {"group": "&",
+               "sku": "S"}
+group_offer = {"group": "&",
+               "sku": "T"}
+group_offer = {"group": "&",
+               "sku": "X"}
+group_offer = {"group": "&",
+               "sku": "Y"}
+group_offer = {"group": "&",
+               "sku": "Z"}
+
 #defining the product attribute values as we won't have any database
 skus_registered = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 product_A = {"description": "A",
@@ -263,6 +274,8 @@ def remove_skus_free(skus):
                         skus = skus.replace(offer.product_free, "", offer.product_free_qtt)
                         
     return skus
+def calc_groups(skus):
+
 
 # expected checkout function
 def checkout(skus):
@@ -284,6 +297,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
 
 
 
