@@ -63,7 +63,6 @@ offers.append(offer_3)
 offers.append(offer_1)
 offers.append(offer_2)
 offers.append(offer_4)
-
 # function to calculate the products according to the expected rules
 def calc_product(skus, sku, qtt_product):
     # look up the offer
@@ -98,12 +97,9 @@ def calc_product(skus, sku, qtt_product):
                     product_for_free = Product(**list_products_free[-1])
                     qtt_products_free = skus.count(offer.product_free)
                     
-                    while qtt_products_free >= offer.product_free_qtt:
-                        print(qtt_products_free)
-
+                    if qtt_products_free >= offer.product_free_qtt:
                         amount = amount - (product_for_free.price * offer.product_free_qtt)
                         qtt_products_free = qtt_products_free - offer.product_free_qtt
-                        print(qtt_products_free)
                         
         if rest > 0:
             amount = amount + (rest * product.price)
@@ -111,7 +107,6 @@ def calc_product(skus, sku, qtt_product):
     else:
         amount = product.price * qtt_product
 
-    # print(amount)
     return amount   
 # expected checkout function
 def checkout(skus):
@@ -126,30 +121,10 @@ def checkout(skus):
             if qtt > 0:
                 product_amount = calc_product(skus,p.description,qtt)
                 amount += product_amount
-            
-                # list_offers = list(filter(lambda x: x['description'] == p.description, offers))
-            
-                # if list_offers:
-                #     offer = Offer(**list_offers[-1])
-                    
-                #     if offer.get_one_free != "":
-                #         list_products_free = list(filter(lambda x: x['description'] == offer.get_one_free, products))
-                #         product_for_free = Product(**list_products_free[-1])
-                #         qtt_for_free = skus.count(offer.get_one_free)
-
-                #         if qtt_for_free > 0:
-                #             amount = amount - product_for_free.price
                         
         if amount > 0 or skus == "":
             return amount
         else:
             return -1
                 
-print(checkout('EEEEBB'))                
-
-
-
-
-
-
-
+# print(checkout('AAAAAA'))    
