@@ -204,17 +204,7 @@ def calc_product(skus, sku, qtt_product):
     # look up the product and instantiate it
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
-
-    # # look up extra offers to avoid having duplicated offers
-    # list_extra_offer = list(filter(lambda x: x['product_free'] == sku, offers))
-    # # verify if description exists in skus
-    # qtt_skus_offer = 0
-    # if list_extra_offer: 
-    #     extra_offer = Offer(**list_extra_offer[-1])
-    #     qtt_skus_offer = skus.count(extra_offer.description)
-    #     # if skus.count(extra_offer.description) > extra_offer.product_free_qtt:
-    #     #     cancel_offer = True
-    
+ 
     if list_offers:
         amount = 0
         rest = 0
@@ -228,16 +218,6 @@ def calc_product(skus, sku, qtt_product):
                 amount = amount + offer.price
                 rest = (qtt_product - (qtt_offer * offer.qtt))
                 qtt_product = qtt_product - offer.qtt
-                
-                # calc rule to get products for free
-                # if offer.product_free != "" and offer.product_free_qtt > 0:
-                #     list_products_free = list(filter(lambda x: x['description'] == offer.product_free, products))
-                #     product_for_free = Product(**list_products_free[-1])
-                #     qtt_products_free = skus.count(offer.product_free)
-                    
-                #     if qtt_products_free >= offer.product_free_qtt:
-                #         amount = amount - (product_for_free.price * offer.product_free_qtt)
-                #         qtt_products_free = qtt_products_free - offer.product_free_qtt
                         
         if rest > 0:
             amount = amount + (rest * product.price)
@@ -283,7 +263,8 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('FFFFFF'))    
+# print(checkout('VVVVV'))    
+
 
 
 
