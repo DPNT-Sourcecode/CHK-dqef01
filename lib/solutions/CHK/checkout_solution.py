@@ -79,7 +79,8 @@ def calc_product(skus, sku, qtt_product):
     cancel_offer = False
     if list_extra_offer: 
         extra_offer = Offer(**list_extra_offer[-1])
-        cancel_offer = True
+        if skus.count(extra_offer.description) > extra_offer.product_free_qtt:
+            cancel_offer = True
     
     if list_offers and not cancel_offer:
         amount = 0
@@ -129,4 +130,4 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('BB'))    
+# print(checkout('EEEEBB'))    
