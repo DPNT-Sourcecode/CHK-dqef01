@@ -76,13 +76,14 @@ def calc_product(skus, sku, qtt_product):
     # look up extra offers to avoid having duplicated offers
     list_extra_offer = list(filter(lambda x: x['product_free'] == sku, offers))
     # verify if description exists in skus
-    cancel_offer = False
+    qtt_skus_offer = 0
     if list_extra_offer: 
         extra_offer = Offer(**list_extra_offer[-1])
-        if skus.count(extra_offer.description) > extra_offer.product_free_qtt:
-            cancel_offer = True
+        qtt_skus_offer = skus.count(extra_offer.description)
+        # if skus.count(extra_offer.description) > extra_offer.product_free_qtt:
+        #     cancel_offer = True
     
-    if list_offers and not cancel_offer:
+    if list_offers:
         amount = 0
         rest = 0
         for item in list_offers:
@@ -130,5 +131,6 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('AAAAAEEBAAABB'))    
+print(checkout('EEEEBB'))    
+
 
