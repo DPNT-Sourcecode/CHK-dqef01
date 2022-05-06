@@ -18,6 +18,10 @@ class Offer:
         self.qtt = qtt
         self.product_free = product_free
         self.product_free_qtt = product_free_qtt
+class Group_Offer:
+    def __init__(self, group, sku):
+        self.id = group
+        self.sku = sku        
 #defining the product attribute values as we won't have any database
 skus_registered = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 product_A = {"description": "A",
@@ -189,7 +193,6 @@ offer_15 = {"description": "V",
            "price": 90,
            "product_free": "",
            "product_free_qtt": 0}
-
 offer_G = {"description": "&",
            "qtt": 3,
            "price": 45,
@@ -281,6 +284,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
 
 
 
