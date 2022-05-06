@@ -11,11 +11,12 @@ class Product:
         self.price = price
 
 class Offer:
-    def __init__(self, description, price, qtt, get_one_free):
+    def __init__(self, description, price, qtt, product_free, product_free_qtt):
         self.description = description
         self.price = price
         self.qtt = qtt
-        self.get_one_free = get_one_free
+        self.product_free = product_free
+        self.product_free_qtt = product_free_qtt
 
 product_A = {"description": "A",
              "price": 50}
@@ -38,19 +39,23 @@ products.append(product_E)
 offer_1 = {"description": "A",
            "qtt": 3,
            "price": 130,
-           "get_one_free" : ""}   
+           "product_free" : "",
+           "product_free_qtt": 0}   
 offer_2 = {"description": "B",
            "qtt": 2,
            "price": 45,
-           "get_one_free" : ""}  
+           "product_free" : "",
+           "product_free_qtt": 0}  
 offer_3 = {"description": "A",
            "qtt": 5,
            "price": 200,
-           "get_one_free": ""}
+           "product_free": "",
+           "product_free_qtt": 0}
 offer_4 = {"description": "E",
            "qtt": 2,
            "price": 80,
-           "get_one_free": "B"}
+           "product_free": "B",
+           "product_free_qtt": 1}
 
 offers = list()
 
@@ -86,6 +91,12 @@ def calc_product(skus, sku, qtt_product):
                 amount = amount + offer.price
                 rest = (qtt_product - (qtt_offer * offer.qtt))
                 qtt_product = qtt_product - offer.qtt
+
+                if offer.product_free != "":
+                    list_products_free = list(filter(lambda x: x['description'] == offer.product_free, products))
+                    product_for_free = Product(**list_products_free[-1])
+                    qtt_products = skus.count(offer.product_free)
+
 
         if rest > 0:
             amount = amount + (rest * product.price)
@@ -127,4 +138,3 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))                
-
