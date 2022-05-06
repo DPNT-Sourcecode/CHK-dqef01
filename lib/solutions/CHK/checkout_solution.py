@@ -191,6 +191,7 @@ offers.append(offer_7)
 offers.append(offer_8)
 offers.append(offer_9)
 offers.append(offer_10)
+offers.append(offer_11)
 offers.append(offer_12)
 offers.append(offer_13)
 offers.append(offer_14)
@@ -263,7 +264,8 @@ def checkout(skus):
         else:
             return -1
                 
-# print(checkout('VVVVV'))    
+print(checkout('QQQQ'))    
+
 
 
 
