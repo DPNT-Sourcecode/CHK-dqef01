@@ -98,14 +98,14 @@ def calc_product(skus, sku, qtt_product):
                 qtt_product = qtt_product - offer.qtt
                 
                 # calc rule to get products for free
-                if offer.product_free != "" and offer.product_free_qtt > 0:
-                    list_products_free = list(filter(lambda x: x['description'] == offer.product_free, products))
-                    product_for_free = Product(**list_products_free[-1])
-                    qtt_products_free = skus.count(offer.product_free)
+                # if offer.product_free != "" and offer.product_free_qtt > 0:
+                #     list_products_free = list(filter(lambda x: x['description'] == offer.product_free, products))
+                #     product_for_free = Product(**list_products_free[-1])
+                #     qtt_products_free = skus.count(offer.product_free)
                     
-                    if qtt_products_free >= offer.product_free_qtt:
-                        amount = amount - (product_for_free.price * offer.product_free_qtt)
-                        qtt_products_free = qtt_products_free - offer.product_free_qtt
+                #     if qtt_products_free >= offer.product_free_qtt:
+                #         amount = amount - (product_for_free.price * offer.product_free_qtt)
+                #         qtt_products_free = qtt_products_free - offer.product_free_qtt
                         
         if rest > 0:
             amount = amount + (rest * product.price)
@@ -117,18 +117,21 @@ def calc_product(skus, sku, qtt_product):
 def remove_skus_free(skus):
     for product in products:
         p = Product(**product)
-        qtt_skus = skus.count(p.description)
         # look up extra offers to avoid having duplicated offers
-        list_extra_offer = list(filter(lambda x: x['product_free'] == p.description, offers))
+        list_extra_offer = list(filter(lambda x: x['description'] == p.description, offers))
         # verify if description exists in skus
-        qtt_skus_offer = 0
-        if list_extra_offer: 
-            extra_offer = Offer(**list_extra_offer[-1])
-            qtt_skus_offer = skus.count(extra_offer.description)
-            # if skus.count(extra_offer.description) > extra_offer.product_free_qtt:
-            #     cancel_offer = True
-    
+        if list_extra_offer:
+            for extra_offer in list_extra_offer:
+                offer = Offer(**extra_offer)
+                if offer.product_free != "" and offer.product_free_qtt > 0:
 
+                    qtt_skus_offer = skus.count(p.description) #4
+                    # qtt_skus_free = skus.count(offer.product_free)
+
+                    while qtt_skus_offer <= 0:
+                        qtt_skus_offer = qtt_skus_offer - offer.product_free_qtt
+                        skus.replace(offer.product_free, '')
+                        
     return skus
 
 # expected checkout function
@@ -151,4 +154,5 @@ def checkout(skus):
             return -1
                 
 print(checkout('EEEEBB'))    
+
 
