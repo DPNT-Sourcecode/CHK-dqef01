@@ -85,11 +85,6 @@ def calc_product(sku, qtt_product):
                 amount = amount + qtt_offer * offer.price
                 rest = (qtt_product - (qtt_offer * offer.qtt))
                 qtt_product = qtt_product - offer.qtt
-
-                if offer.get_one_free != "":
-                    list_products_free = list(filter(lambda x: x['description'] == offer.get_one_free, products))
-                    product_for_free = Product(**list_products_free[-1])
-                    amount = amount - product_for_free.price
             
         if rest > 0:
             amount = amount + (rest * product.price)
@@ -110,10 +105,17 @@ def checkout(skus):
             qtt = skus.count(p.description)
             product_amount = calc_product(p.description,qtt)
             amount += product_amount
+
+            if offer.get_one_free != "":
+                list_products_free = list(filter(lambda x: x['description'] == offer.get_one_free, products))
+                product_for_free = Product(**list_products_free[-1])
+                amount = amount - product_for_free.price
+
         if amount > 0 or skus == "":
             return amount
         else:
             return -1
                 
 print(checkout('EE'))                
+
 
