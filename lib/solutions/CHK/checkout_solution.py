@@ -299,8 +299,7 @@ def remove_skus_free(skus):
     return skus
 # calc group of offers    
 def calc_groups(skus):
-    list_offers = list(filter(lambda x: x['group'] == 1, offers))
-    print(list_offers)
+    list_offers = list(filter(lambda x: x['group'] == 1, offers))    
     if list_offers:
         for offer in list_offers:
             offer = Offer(**list_offers[-1])
@@ -312,8 +311,6 @@ def calc_groups(skus):
                     group_offer = Group_Offer(**group)
                     qtt_group += skus.count(group_offer.sku)
                     sku_offer += group_offer.sku 
-                    print(sku_offer)
-
                 if qtt_group >= offer.qtt:
                     # example 'STUV' 'STZ' 'AAASTZ'
                     # offer: (S,T,X,Y,Z)
@@ -366,6 +363,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZAAA'))    
+
 
 
 
