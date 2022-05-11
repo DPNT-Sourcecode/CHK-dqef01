@@ -364,7 +364,8 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('STZAAA'))    
+print(checkout('ABCa'))    
+
 
 
 
