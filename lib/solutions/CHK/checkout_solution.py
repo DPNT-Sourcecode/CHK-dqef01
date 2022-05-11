@@ -310,13 +310,15 @@ def calc_groups(skus):
                 for group in list_group_offers:
                     group_offer = Group_Offer(**group)
                     qtt_group += skus.count(group_offer.sku)
-                    sku_offer += group_offer.sku 
+                    if group_offer.sku in skus:
+                        sku_offer += group_offer.sku
                 if qtt_group >= offer.qtt:
                     # example 'STUV' 'STZ' 'AAASTZ'
                     # offer: (S,T,X,Y,Z)
                     for sku in sku_offer:
                         skus = skus.replace(sku, "", 1)
-                        skus.join(offer.description)
+                        skus = skus.join(offer.description)
+    print(skus)
     return skus
     #     for group_offer in group_offers:
     #         g = Group_Offer(**group)
@@ -363,3 +365,4 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZAAA'))    
+
