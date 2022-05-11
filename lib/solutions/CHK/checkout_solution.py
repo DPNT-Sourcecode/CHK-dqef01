@@ -301,6 +301,7 @@ def remove_skus_free(skus):
 # calc group of offers    
 def calc_groups(skus):
     qtt_group = 0
+    sku_offer = ""
     for sku in skus:
         list_group_offers = list(filter(lambda x: x['sku'] == sku, group_offers))
         if list_group_offers:
@@ -309,40 +310,39 @@ def calc_groups(skus):
                 list_offers = list(filter(lambda x: x['description'] == group_offer.group, offers))
                 if list_offers:
                     offer = Offer(**list_offers[-1])
-                    qtt_group += skus.count(sku)
-                    sku_offer += sku
-                    
+                    if offer.description:
+                        qtt_group += skus.count(sku)
+                        sku_offer += sku
+    print(qtt_group)
+    print(sku_offer)                
+    for sku in sku_offer:
+        if qtt_group > offer.qtt:
+            skus = skus.replace(sku, "", 1)
+            skus += skus.join(offer.description)
+            qtt_group = qtt_group - 1
+                        
 
-
-    list_offers = list(filter(lambda x: x['group'] == 1, offers))    
-    if list_offers:
-        for offer in list_offers:
-            offer = Offer(**list_offers[-1])
-            list_group_offers = list(filter(lambda x: x['group'] == offer.description, group_offers))
-            qtt_group = 0
-            sku_offer = ""
+    # list_offers = list(filter(lambda x: x['group'] == 1, offers))    
+    # if list_offers:
+    #     for offer in list_offers:
+    #         offer = Offer(**list_offers[-1])
+    #         list_group_offers = list(filter(lambda x: x['group'] == offer.description, group_offers))
+    #         qtt_group = 0
+    #         sku_offer = ""
             
-            if list_group_offers:
-                for group in list_group_offers:
-                    group_offer = Group_Offer(**group)
-                    qtt_group += skus.count(group_offer.sku)
-                    if group_offer.sku in skus:
-                        sku_offer += group_offer.sku
-                # example 'STUV' 'STZ' 'AAASTZ'
-                # offer: (S,T,X,Y,Z)
-                for sku in sku_offer:
-                    if qtt_group > offer.qtt:
-                        skus = skus.replace(sku, "", 1)
-                        skus += skus.join(offer.description)
-                        qtt_group = qtt_group - 1
-                        
-                # for i in range(offer.qtt):
-                #     if qtt_group >= offer.qtt:
-                #         for sku in sku_offer:
-                #             skus = skus.replace(sku, "", 1)
-                #             skus += skus.join(offer.description)
-                #             qtt_group = qtt_group - 1
-                        
+    #         if list_group_offers:
+    #             for group in list_group_offers:
+    #                 group_offer = Group_Offer(**group)
+    #                 qtt_group += skus.count(group_offer.sku)
+    #                 if group_offer.sku in skus:
+    #                     sku_offer += group_offer.sku
+    #             # example 'STUV' 'STZ' 'AAASTZ'
+    #             # offer: (S,T,X,Y,Z)
+    #             for sku in sku_offer:
+    #                 if qtt_group > offer.qtt:
+    #                     skus = skus.replace(sku, "", 1)
+    #                     skus += skus.join(offer.description)
+    #                     qtt_group = qtt_group - 1
     return skus
     
 # expected checkout function
@@ -367,4 +367,5 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZXYS'))    
+
 
