@@ -305,7 +305,6 @@ def calc_groups(skus):
     sku_offer = ""
     for sku in skus:
         list_group_offers = list(filter(lambda x: x['sku'] == sku, group_offers))
-        print(list_group_offers)
         if list_group_offers:
             group_offer = Group_Offer(**list_group_offers[-1])
             list_offers = list(filter(lambda x: x['description'] == group_offer.group, offers))
@@ -314,7 +313,7 @@ def calc_groups(skus):
                 if offer.description:
                     qtt_group += skus.count(sku)
                     sku_offer += sku
-                
+                    
     print(qtt_group)
     print(sku_offer)                
     for sku in sku_offer:
@@ -351,7 +350,6 @@ def calc_groups(skus):
 def checkout(skus):
     skus = remove_skus_free(skus)
     skus = calc_groups(skus)
-    print(skus)
     amount = 0
     if sum(map(str.islower, skus)) > 0:
         return -1
@@ -369,6 +367,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZXYS'))    
+
 
 
 
