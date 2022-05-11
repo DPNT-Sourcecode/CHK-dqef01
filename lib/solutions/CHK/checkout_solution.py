@@ -24,15 +24,15 @@ class Group_Offer:
         self.group = group
         self.sku = sku     
 # defining the offer group attribute values as we won't have any database   
-group_offer_1 = {"group": "&",
+group_offer_1 = {"group": "G1",
                  "sku": "S"}
-group_offer_2 = {"group": "&",
+group_offer_2 = {"group": "G1",
                  "sku": "T"}
-group_offer_3 = {"group": "&",
+group_offer_3 = {"group": "G1",
                  "sku": "X"}
-group_offer_4 = {"group": "&",
+group_offer_4 = {"group": "G1",
                  "sku": "Y"}
-group_offer_5 = {"group": "&",
+group_offer_5 = {"group": "G1",
                  "sku": "Z"}
 list_groups = list()
 list_groups.append(group_offer_1) 
@@ -210,7 +210,7 @@ offer_15 = {"description": "V",
            "price": 90,
            "product_free": "",
            "product_free_qtt": 0}
-offer_G = {"description": "&",
+offer_G = {"description": "G1",
            "qtt": 3,
            "price": 45,
            "product_free": "",
@@ -282,9 +282,18 @@ def remove_skus_free(skus):
 # calc group of offers    
 # def calc_groups(skus):
 #     gCount = 0
+#     qtt_group = 0
+#     for group in list_groups:
+#         g = Group_Offer(**group)
+#         qtt_group += skus.count(g.sku)
+
+    
+#     # checking if any group_offer registered
+#     if qtt_group > 0: 
+
 #     for s in skus:
 #         # 'STUV' 'STZ' 'AAASTZ'
-#         groups = list(filter(lambda x: x['sku'] == group.sku, list_groups))
+#         groups = list(filter(lambda x: x['sku'] == s, list_groups))
 
 #         if groups:
 #             g = Group_Offer(**groups[-1])
@@ -294,11 +303,6 @@ def remove_skus_free(skus):
 #     for item in list_groups:
 #         group = Group_Offer(**item)
 #         list_offers_g = list(filter(lambda x: x['sku'] == group.sku, offers))
-
-
-    
-            
-
 
 # expected checkout function
 def checkout(skus):
