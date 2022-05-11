@@ -34,12 +34,12 @@ group_offer_4 = {"group": "G1",
                  "sku": "Y"}
 group_offer_5 = {"group": "G1",
                  "sku": "Z"}
-list_groups = list()
-list_groups.append(group_offer_1) 
-list_groups.append(group_offer_2)
-list_groups.append(group_offer_3)
-list_groups.append(group_offer_4)
-list_groups.append(group_offer_5)                
+group_offers = list()
+group_offers.append(group_offer_1) 
+group_offers.append(group_offer_2)
+group_offers.append(group_offer_3)
+group_offers.append(group_offer_4)
+group_offers.append(group_offer_5)                
 #defining the product attribute values as we won't have any database
 product_A = {"description": "A",
              "price": 50}
@@ -214,7 +214,8 @@ offer_G = {"description": "G1",
            "qtt": 3,
            "price": 45,
            "product_free": "",
-           "product_free_qtt": 0}           
+           "product_free_qtt": 0,
+           "group": 0}           
 #creating and insertint a list of offers
 offers = list()
 offers.append(offer_3)
@@ -232,6 +233,7 @@ offers.append(offer_12)
 offers.append(offer_13)
 offers.append(offer_14)
 offers.append(offer_15)
+offers.append(offer_G)
 # function to calculate the products according to the expected rules
 def calc_product(skus, sku, qtt_product):
     # look up the offer
@@ -280,29 +282,36 @@ def remove_skus_free(skus):
                         skus = skus.replace(offer.product_free, "", offer.product_free_qtt)
     return skus
 # calc group of offers    
-# def calc_groups(skus):
-#     gCount = 0
-#     qtt_group = 0
-#     for group in list_groups:
-#         g = Group_Offer(**group)
-#         qtt_group += skus.count(g.sku)
+def calc_groups(skus):
+    list_offers = list(filter(lambda x: x['group'] == 0, offers))
+    if list_offers:
+        offer = Offer(**list_offers[-1])
 
-    
-#     # checking if any group_offer registered
-#     if qtt_group > 0: 
 
-#     for s in skus:
-#         # 'STUV' 'STZ' 'AAASTZ'
-#         groups = list(filter(lambda x: x['sku'] == s, list_groups))
 
-#         if groups:
-#             g = Group_Offer(**groups[-1])
-#             if g.sku:
-#                 gCount += 1
+        for group_offer in list_groups:
+            g = Group_Offer(**group)
 
-#     for item in list_groups:
-#         group = Group_Offer(**item)
-#         list_offers_g = list(filter(lambda x: x['sku'] == group.sku, offers))
+    gCount = 0
+    qtt_group = 0
+    for group in list_groups:
+        g = Group_Offer(**group)
+        qtt_group += skus.count(g.sku)
+    # checking if any group_offer registered
+    if qtt_group > 0: 
+
+    for s in skus:
+        # 'STUV' 'STZ' 'AAASTZ'
+        groups = list(filter(lambda x: x['sku'] == s, list_groups))
+
+        if groups:
+            g = Group_Offer(**groups[-1])
+            if g.sku:
+                gCount += 1
+
+    for item in list_groups:
+        group = Group_Offer(**item)
+        list_offers_g = list(filter(lambda x: x['sku'] == group.sku, offers))
 
 # expected checkout function
 def checkout(skus):
@@ -324,3 +333,4 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
