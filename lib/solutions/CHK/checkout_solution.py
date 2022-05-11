@@ -317,7 +317,7 @@ def calc_groups(skus):
     print(qtt_group)
     print(sku_offer)                
     for sku in sku_offer:
-        if qtt_group > offer.qtt:
+        if qtt_group >= offer.qtt:
             skus = skus.replace(sku, "", 1)
             skus += skus.join(offer.description)
             qtt_group = qtt_group - 1
@@ -367,6 +367,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZXYS'))    
+
 
 
 
