@@ -304,7 +304,6 @@ def calc_groups(skus):
     qtt_group = 0
     sku_offer = ""
     for sku in skus:
-        print(group_offers)
         list_group_offers = list(filter(lambda x: x['sku'] == sku, group_offers))
         print(list_group_offers)
         if list_group_offers:
@@ -370,6 +369,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZXYS'))    
+
 
 
 
