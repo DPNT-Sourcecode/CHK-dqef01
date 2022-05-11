@@ -140,77 +140,92 @@ offer_1 = {"description": "A",
            "qtt": 3,
            "price": 130,
            "product_free" : "",
-           "product_free_qtt": 0}   
+           "product_free_qtt": 0,
+           "group": 0}   
 offer_2 = {"description": "B",
            "qtt": 2,
            "price": 45,
            "product_free" : "",
-           "product_free_qtt": 0}  
+           "product_free_qtt": 0,
+           "group": 0}  
 offer_3 = {"description": "A",
            "qtt": 5,
            "price": 200,
            "product_free": "",
-           "product_free_qtt": 0}
+           "product_free_qtt": 0,
+           "group": 0}
 offer_4 = {"description": "E",
            "qtt": 2,
            "price": 80,
            "product_free": "B",
-           "product_free_qtt": 1}
+           "product_free_qtt": 1,
+           "group": 0}
 offer_5 = {"description": "F",
            "qtt": 3,
            "price": 30,
            "product_free": "F",
-           "product_free_qtt": 1}   
+           "product_free_qtt": 1,
+           "group": 0}   
 offer_6 = {"description": "H",
            "qtt": 10,
            "price": 80,
            "product_free": "",
-           "product_free_qtt": 0}           
+           "product_free_qtt": 0,
+           "group": 0}           
 offer_7 = {"description": "H",
            "qtt": 5,
            "price": 45,
            "product_free": "",
-           "product_free_qtt": 0}  
+           "product_free_qtt": 0,
+           "group": 0}  
 offer_8 = {"description": "K",
            "qtt": 2,
            "price": 150,
            "product_free": "",
-           "product_free_qtt": 0}  
+           "product_free_qtt": 0,
+           "group": 0}  
 offer_9 = {"description": "N",
            "qtt": 3,
            "price": 120,
            "product_free": "M",
-           "product_free_qtt": 1}  
+           "product_free_qtt": 1,
+           "group": 0}  
 offer_10 = {"description": "P",
            "qtt": 5,
            "price": 200,
            "product_free": "",
-           "product_free_qtt": 0}  
+           "product_free_qtt": 0,
+           "group": 0}  
 offer_11 = {"description": "Q",
            "qtt": 3,
            "price": 80,
            "product_free": "",
-           "product_free_qtt": 0}
+           "product_free_qtt": 0,
+           "group": 0}
 offer_12 = {"description": "R",
            "qtt": 3,
            "price": 150,
            "product_free": "Q",
-           "product_free_qtt": 1}
+           "product_free_qtt": 1,
+           "group": 0}
 offer_13 = {"description": "U",
            "qtt": 4,
            "price": 160,
            "product_free": "U",
-           "product_free_qtt": 1}
+           "product_free_qtt": 1,
+           "group": 0}
 offer_14 = {"description": "V",
            "qtt": 3,
            "price": 130,
            "product_free": "",
-           "product_free_qtt": 0}
+           "product_free_qtt": 0,
+           "group": 0}
 offer_15 = {"description": "V",
            "qtt": 2,
            "price": 90,
            "product_free": "",
-           "product_free_qtt": 0}
+           "product_free_qtt": 0,
+           "group": 0}
 offer_G = {"description": "&",
            "qtt": 3,
            "price": 45,
@@ -346,4 +361,5 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('QQQ'))    
+print(checkout('AAAAAEEBAAABB'))    
+
