@@ -12,12 +12,13 @@ class Product:
         self.price = price
 # creating offer class
 class Offer:
-    def __init__(self, description, price, qtt, product_free, product_free_qtt):
+    def __init__(self, description, price, qtt, product_free, product_free_qtt, group):
         self.description = description
         self.price = price
         self.qtt = qtt
         self.product_free = product_free
         self.product_free_qtt = product_free_qtt
+        self.group = group
 # creating group of offers        
 class Group_Offer:
     def __init__(self, group, sku):
@@ -215,7 +216,7 @@ offer_G = {"description": "&",
            "price": 45,
            "product_free": "",
            "product_free_qtt": 0,
-           "group": 0}           
+           "group": 1}           
 #creating and insertint a list of offers
 offers = list()
 offers.append(offer_3)
@@ -283,7 +284,7 @@ def remove_skus_free(skus):
     return skus
 # calc group of offers    
 def calc_groups(skus):
-    list_offers = list(filter(lambda x: x['group'] == 0, offers))
+    list_offers = list(filter(lambda x: x['group'] == 1, offers))
     if list_offers:
         for offer in list_offers:
             offer = Offer(**list_offers[-1])
@@ -293,6 +294,12 @@ def calc_groups(skus):
                 for group in list_group_offers:
                     group_offer = Group_Offer(**group)
                     qtt_group += skus.count(group_offer.sku)
+                    sku_offer += group_offer.sku 
+
+                if qtt_group >= offer.qtt:  
+                    for sku in sku_offer:
+
+
 
 
 
@@ -341,5 +348,6 @@ def checkout(skus):
             return -1
                 
 print(checkout('QQQQQ'))    
+
 
 
