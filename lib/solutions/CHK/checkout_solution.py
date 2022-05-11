@@ -348,6 +348,7 @@ def calc_groups(skus):
 def checkout(skus):
     skus = remove_skus_free(skus)
     skus = calc_groups(skus)
+    print(skus)
     amount = 0
     if sum(map(str.islower, skus)) > 0:
         return -1
@@ -364,7 +365,8 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('ABCa'))    
+print(checkout('STZ'))    
+
 
 
 
