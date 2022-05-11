@@ -317,8 +317,7 @@ def calc_groups(skus):
                     # offer: (S,T,X,Y,Z)
                     for sku in sku_offer:
                         skus = skus.replace(sku, "", 1)
-                        skus = skus.join(offer.description)
-    print(skus)
+                        skus += skus.join(offer.description)
     return skus
     #     for group_offer in group_offers:
     #         g = Group_Offer(**group)
@@ -347,7 +346,9 @@ def calc_groups(skus):
 # expected checkout function
 def checkout(skus):
     skus = remove_skus_free(skus)
+    print(skus)
     skus = calc_groups(skus)
+    print(skus)
     amount = 0
     if sum(map(str.islower, skus)) > 0:
         return -1
@@ -365,4 +366,5 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZAAA'))    
+
 
