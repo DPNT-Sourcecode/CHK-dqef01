@@ -313,14 +313,20 @@ def calc_groups(skus):
                     qtt_group += skus.count(group_offer.sku)
                     if group_offer.sku in skus:
                         sku_offer += group_offer.sku
-                    # example 'STUV' 'STZ' 'AAASTZ'
-                    # offer: (S,T,X,Y,Z)
-                    for i in range(offer.qtt):
-                        if qtt_group >= offer.qtt:
-                            for sku in sku_offer:
-                                skus = skus.replace(sku, "", 1)
-                                skus += skus.join(offer.description)
-                                qtt_group = qtt_group - 1
+                # example 'STUV' 'STZ' 'AAASTZ'
+                # offer: (S,T,X,Y,Z)
+                for sku in sku_offer:
+                    if qtt_group > offer.qtt:
+                        skus = skus.replace(sku, "", 1)
+                        skus += skus.join(offer.description)
+                        qtt_group = qtt_group - 1
+                        
+                # for i in range(offer.qtt):
+                #     if qtt_group >= offer.qtt:
+                #         for sku in sku_offer:
+                #             skus = skus.replace(sku, "", 1)
+                #             skus += skus.join(offer.description)
+                #             qtt_group = qtt_group - 1
                         
     return skus
     
@@ -346,4 +352,5 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZXYS'))    
+
 
