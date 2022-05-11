@@ -302,6 +302,12 @@ def remove_skus_free(skus):
 def calc_groups(skus):
     for sku in skus:
         list_group_offers = list(filter(lambda x: x['sku'] == sku, group_offers))
+        if list_group_offers:
+            for group in list_group_offers:
+                group_offer = Group_Offer(**group)
+                list_offers = list(filter(lambda x: x['description'] == group_offer.group, offers))
+
+
 
     list_offers = list(filter(lambda x: x['group'] == 1, offers))    
     if list_offers:
@@ -356,6 +362,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZXYS'))    
+
 
 
 
