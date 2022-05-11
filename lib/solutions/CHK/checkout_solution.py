@@ -311,7 +311,7 @@ def calc_groups(skus):
             if list_offers:
                 offer = Offer(**list_offers[-1])
                 if offer.description:
-                    qtt_group += skus.count(sku)
+                    qtt_group += 1
                     sku_offer += sku
                     
     print(qtt_group)
@@ -322,7 +322,7 @@ def calc_groups(skus):
             skus += skus.join(offer.description)
             qtt_group = qtt_group - 1
                         
-
+    print(skus)
     # list_offers = list(filter(lambda x: x['group'] == 1, offers))    
     # if list_offers:
     #     for offer in list_offers:
@@ -367,6 +367,7 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZXYS'))    
+
 
 
 
