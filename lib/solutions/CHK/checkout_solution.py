@@ -312,12 +312,12 @@ def calc_groups(skus):
                     sku_offer += group_offer.sku 
 
                 if qtt_group >= offer.qtt:
-                    # 'STUV' 'STZ' 'AAASTZ'
+                    # example 'STUV' 'STZ' 'AAASTZ'
                     # offer: (S,T,X,Y,Z)
                     for sku in sku_offer:
                         skus = skus.replace(sku, "", 1)
                         skus.join(offer.description)
-
+    return skus
     #     for group_offer in group_offers:
     #         g = Group_Offer(**group)
 
@@ -345,6 +345,7 @@ def calc_groups(skus):
 # expected checkout function
 def checkout(skus):
     skus = remove_skus_free(skus)
+    skus = calc_groups(skus)
     amount = 0
     if sum(map(str.islower, skus)) > 0:
         return -1
@@ -361,5 +362,6 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('AAAAAEEBAAABB'))    
+print(checkout('STZ'))    
+
 
