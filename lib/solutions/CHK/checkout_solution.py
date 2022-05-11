@@ -104,6 +104,8 @@ product_Y = {"description": "Y",
 #              "price": 50}
 product_Z = {"description": "Z",
              "price": 21}
+product_G = {"description": "&",
+             "price": 0}             
 #creating and insertint a list of products
 
 products = list()
@@ -251,11 +253,10 @@ offers.append(offer_14)
 offers.append(offer_15)
 offers.append(offer_G)
 # function to calculate the products according to the expected rules
-def calc_product(skus, sku, qtt_product):
+def calc_product(sku, qtt_product):
     # look up the offer
     list_offers = list(filter(lambda x: x['description'] == sku, offers))
     list_offers = list(filter(lambda x: x['qtt'] <= qtt_product, list_offers))
-    
     # look up the product and instantiate it
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
@@ -346,9 +347,7 @@ def calc_groups(skus):
 # expected checkout function
 def checkout(skus):
     skus = remove_skus_free(skus)
-    print(skus)
     skus = calc_groups(skus)
-    print(skus)
     amount = 0
     if sum(map(str.islower, skus)) > 0:
         return -1
@@ -357,7 +356,7 @@ def checkout(skus):
             p = Product(**product)
             qtt = skus.count(p.description)
             if qtt > 0:
-                product_amount = calc_product(skus,p.description,qtt)
+                product_amount = calc_product(p.description,qtt)
                 amount += product_amount
                         
         if amount > 0 or skus == "":
@@ -366,5 +365,6 @@ def checkout(skus):
             return -1
                 
 print(checkout('STZAAA'))    
+
 
 
