@@ -301,55 +301,60 @@ def remove_skus_free(skus):
     return skus
 # calc group of offers    
 def calc_groups(skus):
-    qtt_group = 0
-    sku_offer = ""
-    for sku in skus:
-        list_group_offers = list(filter(lambda x: x['sku'] == sku, group_offers))
-        if list_group_offers:
-            group_offer = Group_Offer(**list_group_offers[-1])
-            list_offers = list(filter(lambda x: x['description'] == group_offer.group, offers))
-            if list_offers:
-                offer = Offer(**list_offers[-1])
-                if offer.description:
-                    qtt_group += 1
-                    sku_offer += sku
+    # qtt_group = 0
+    # sku_offer = ""
+    # for sku in skus:
+    #     list_group_offers = list(filter(lambda x: x['sku'] == sku, group_offers))
+    #     if list_group_offers:
+    #         group_offer = Group_Offer(**list_group_offers[-1])
+    #         list_offers = list(filter(lambda x: x['description'] == group_offer.group, offers))
+    #         if list_offers:
+    #             offer = Offer(**list_offers[-1])
+                
+    #             if offer.description:
+    #                 qtt_group += 1
+    #                 sku_offer += sku
                     
-    print(qtt_group)
-    print(sku_offer)                
-    for sku in sku_offer:
-        if qtt_group >= offer.qtt:
-            skus = skus.replace(sku, "", 1)
-            skus += skus.join(offer.description)
-            qtt_group = qtt_group - 1
-                        
-    print(skus)
-    # list_offers = list(filter(lambda x: x['group'] == 1, offers))    
-    # if list_offers:
-    #     for offer in list_offers:
-    #         offer = Offer(**list_offers[-1])
-    #         list_group_offers = list(filter(lambda x: x['group'] == offer.description, group_offers))
-    #         qtt_group = 0
-    #         sku_offer = ""
-            
-    #         if list_group_offers:
-    #             for group in list_group_offers:
-    #                 group_offer = Group_Offer(**group)
-    #                 qtt_group += skus.count(group_offer.sku)
-    #                 if group_offer.sku in skus:
-    #                     sku_offer += group_offer.sku
-    #             # example 'STUV' 'STZ' 'AAASTZ'
-    #             # offer: (S,T,X,Y,Z)
-    #             for sku in sku_offer:
-    #                 if qtt_group > offer.qtt:
-    #                     skus = skus.replace(sku, "", 1)
-    #                     skus += skus.join(offer.description)
-    #                     qtt_group = qtt_group - 1
+        # for sku in sku_offer:
+        #     if qtt_group >= offer.qtt:
+        #         print(qtt_group)
+        #         print(sku_offer)
+        #         skus = skus.replace(sku, "", 1)
+        #         skus += skus.join(offer.description)
+        #         qtt_group -= 1
+    list_offers = list(filter(lambda x: x['group'] == 1, offers))    
+    if list_offers:
+        for offer in list_offers:
+            offer = Offer(**list_offers[-1])
+            list_group_offers = list(filter(lambda x: x['group'] == offer.description, group_offers))
+            qtt_group_skus = 0
+            sku_offer = ""
+            if list_group_offers:
+                for sku in skus:
+                    group = list(filter(lambda x: x['sku'] == sku, group_offers))
+                    if group:
+                        group_offer = Group_Offer(**group[-1])
+                        if group_offer.sku:
+                            qtt_group_skus += 1
+                            sku_offer += sku
+            qtt_offer = 0    
+            for sku_new in sku_offer:
+                if qtt_group_skus >= offer.qtt:
+                    skus = skus.replace(sku_new, "", 1)
+                    skus += skus.join(offer.description)
+                    qtt_offer += 1
+                    # only if passed offer.qtt
+                    if qtt_offer >= offer.qtt:
+                        qtt_offer = 0
+                        qtt_group_skus -= offer.qtt
+                   
     return skus
     
 # expected checkout function
 def checkout(skus):
     skus = remove_skus_free(skus)
     skus = calc_groups(skus)
+    print(skus)
     amount = 0
     if sum(map(str.islower, skus)) > 0:
         return -1
@@ -366,4 +371,5 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('STZXYS'))    
+#print(checkout('AAAAAA'))
+#print(checkout('STXYZSTXYZ'))    
