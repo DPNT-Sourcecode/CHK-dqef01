@@ -315,10 +315,22 @@ def calc_groups(skus):
                         if group_offer.sku:
                             qtt_group_skus += 1
                             sku_offer += sku
+
+            list_offers = list()
+            for sku in sku_offer:
+                list_products = list(filter(lambda x: x['description'] == sku, products))
+                    # product_price_min = 0
+                if list_products:
+                    product = Product(**list_products[-1])
+                    list_offers.append(product)
+
+                    #     if product_price_min > 0 or product.price < product_price_min:
+                    #         product_price_min = product.price
+            list_offers.sort(key=lambda x:x["price"], reverse=True)    
             qtt_offer = 0    
-            for sku_new in sku_offer:
+            for sku_new in list_offers:
                 if qtt_group_skus >= offer.qtt:
-                    skus = skus.replace(sku_new, "", 1)
+                    skus = skus.replace(sku_new['description'], "", 1)
                     skus += skus.join(offer.description)
                     qtt_offer += 1
                     # only if passed offer.qtt
@@ -354,3 +366,4 @@ def checkout(skus):
 #print(checkout('STXYZSTXYZ'))
 print(checkout('SSSZ'))  
 #print  
+
