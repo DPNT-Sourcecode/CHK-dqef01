@@ -261,7 +261,7 @@ def calc_product(sku, qtt_product):
     # look up the product and instantiate it
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
- 
+    print(product) 
     if list_offers:
         amount = 0
         rest = 0
@@ -373,4 +373,5 @@ def checkout(skus):
                 
 print(checkout('ABCDEFGHIJKLMNOPQRSTUVW'))
 #print(checkout('STXYZSTXYZ'))    
+
 
