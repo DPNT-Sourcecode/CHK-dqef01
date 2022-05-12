@@ -183,7 +183,7 @@ offer_7 = {"description": "H",
            "group": 0}  
 offer_8 = {"description": "K",
            "qtt": 2,
-           "price": 150,
+           "price": 120,
            "product_free": "",
            "product_free_qtt": 0,
            "group": 0}  
@@ -261,7 +261,6 @@ def calc_product(sku, qtt_product):
     # look up the product and instantiate it
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
-    print(product.description) 
     if list_offers:
         amount = 0
         rest = 0
@@ -301,27 +300,6 @@ def remove_skus_free(skus):
     return skus
 # calc group of offers    
 def calc_groups(skus):
-    # qtt_group = 0
-    # sku_offer = ""
-    # for sku in skus:
-    #     list_group_offers = list(filter(lambda x: x['sku'] == sku, group_offers))
-    #     if list_group_offers:
-    #         group_offer = Group_Offer(**list_group_offers[-1])
-    #         list_offers = list(filter(lambda x: x['description'] == group_offer.group, offers))
-    #         if list_offers:
-    #             offer = Offer(**list_offers[-1])
-                
-    #             if offer.description:
-    #                 qtt_group += 1
-    #                 sku_offer += sku
-                    
-        # for sku in sku_offer:
-        #     if qtt_group >= offer.qtt:
-        #         print(qtt_group)
-        #         print(sku_offer)
-        #         skus = skus.replace(sku, "", 1)
-        #         skus += skus.join(offer.description)
-        #         qtt_group -= 1
     list_offers = list(filter(lambda x: x['group'] == 1, offers))    
     if list_offers:
         for offer in list_offers:
@@ -371,9 +349,10 @@ def checkout(skus):
         else:
             return -1
                 
-#print(checkout('ABCDEFGHIJKLMNOPQRSTUVW'))
-print(checkout('G'))
-#print(checkout('STXYZSTXYZ'))    
+#print(checkout('KK'))
+#print(checkout('G'))
+print(checkout('STXYZSTXYZ'))    
+
 
 
 
