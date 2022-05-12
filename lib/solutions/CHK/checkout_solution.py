@@ -352,7 +352,9 @@ def checkout(skus):
 #print(checkout('KK'))
 #print(checkout('G'))
 #print(checkout('STXYZSTXYZ'))
-#print(checkout('STTTSX'))    
+print(checkout('SSSZ'))  
+#print  
+
 
 
 
