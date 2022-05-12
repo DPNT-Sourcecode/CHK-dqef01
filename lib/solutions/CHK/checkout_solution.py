@@ -105,8 +105,8 @@ product_Y = {"description": "Y",
 #              "price": 50}
 product_Z = {"description": "Z",
              "price": 21}
-product_G = {"description": "&",
-             "price": 0}             
+# product_Group1 = {"description": "&",
+#              "price": 0}             
 #creating and insertint a list of products
 
 products = list()
@@ -261,7 +261,7 @@ def calc_product(sku, qtt_product):
     # look up the product and instantiate it
     list_products = list(filter(lambda x: x['description'] == sku, products))
     product = Product(**list_products[-1])
-    print(product) 
+    print(product.description) 
     if list_offers:
         amount = 0
         rest = 0
@@ -371,7 +371,9 @@ def checkout(skus):
         else:
             return -1
                 
-print(checkout('ABCDEFGHIJKLMNOPQRSTUVW'))
+#print(checkout('ABCDEFGHIJKLMNOPQRSTUVW'))
+print(checkout('G'))
 #print(checkout('STXYZSTXYZ'))    
+
 
 
