@@ -354,9 +354,3 @@ def checkout(skus):
 #print(checkout('STXYZSTXYZ'))
 print(checkout('SSSZ'))  
 #print  
-
-
-
-
-
-
