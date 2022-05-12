@@ -105,8 +105,8 @@ product_Y = {"description": "Y",
 #              "price": 50}
 product_Z = {"description": "Z",
              "price": 21}
-# product_Group1 = {"description": "&",
-#              "price": 0}             
+product_Group1 = {"description": "&",
+             "price": 0}             
 #creating and insertint a list of products
 
 products = list()
@@ -137,7 +137,7 @@ products.append(product_W)
 products.append(product_X)
 products.append(product_Y)
 products.append(product_Z)
-
+products.append(product_Group1)
 #defining the offer attribute values as we won't have any database
 offer_1 = {"description": "A",
            "qtt": 3,
@@ -351,7 +351,9 @@ def checkout(skus):
                 
 #print(checkout('KK'))
 #print(checkout('G'))
-print(checkout('STXYZSTXYZ'))    
+#print(checkout('STXYZSTXYZ'))
+#print(checkout('STTTSX'))    
+
 
 
 
