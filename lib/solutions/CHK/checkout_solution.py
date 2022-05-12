@@ -323,9 +323,6 @@ def calc_groups(skus):
                 if list_products:
                     product = Product(**list_products[-1])
                     list_offers.append(product)
-
-                    #     if product_price_min > 0 or product.price < product_price_min:
-                    #         product_price_min = product.price
             list_offers.sort(key=lambda x:x.price, reverse=True)    
             qtt_offer = 0    
             for sku_new in list_offers:
@@ -361,10 +358,7 @@ def checkout(skus):
         else:
             return -1
                 
-#print(checkout('KK'))
-#print(checkout('G'))
-#print(checkout('STXYZSTXYZ'))
-print(checkout('STXYZSTXYZ'))  
-#print  
+ 
+
 
 
