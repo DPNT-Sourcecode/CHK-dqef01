@@ -326,11 +326,11 @@ def calc_groups(skus):
 
                     #     if product_price_min > 0 or product.price < product_price_min:
                     #         product_price_min = product.price
-            list_offers.sort(key=lambda x:x["price"], reverse=True)    
+            list_offers.sort(key=lambda x:x.price, reverse=True)    
             qtt_offer = 0    
             for sku_new in list_offers:
                 if qtt_group_skus >= offer.qtt:
-                    skus = skus.replace(sku_new['description'], "", 1)
+                    skus = skus.replace(sku_new.description, "", 1)
                     skus += skus.join(offer.description)
                     qtt_offer += 1
                     # only if passed offer.qtt
@@ -364,6 +364,7 @@ def checkout(skus):
 #print(checkout('KK'))
 #print(checkout('G'))
 #print(checkout('STXYZSTXYZ'))
-print(checkout('SSSZ'))  
+print(checkout('STXYZSTXYZ'))  
 #print  
+
 
